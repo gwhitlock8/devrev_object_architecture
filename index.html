@@ -60,9 +60,11 @@ h1,h2,h3{font-family:'Chip Display',system-ui,sans-serif;letter-spacing:0.0075em
 .sync-sources{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;width:200px}
 .sync-source{background:var(--n1200);border:1px solid var(--n1000);border-radius:8px;padding:8px 10px;display:flex;align-items:center;gap:6px;font-size:11px;color:var(--n600)}
 .sync-source-icon{width:20px;height:20px;border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:11px;background:var(--n1100)}
-.sync-arrow{display:flex;align-items:center;gap:6px;color:var(--y400);white-space:nowrap}
-.sync-arrow-line{width:32px;height:2px;background:var(--y400)}
-.sync-arrow-label{font-family:'Chip Mono',monospace;font-size:8px;color:var(--n800)}
+.sync-arrow{display:flex;flex-direction:column;align-items:center;gap:4px;color:var(--y400);min-width:60px;padding:0 8px;flex-shrink:0}
+.sync-arrow-line{width:100%;height:2px;background:var(--y400);position:relative}
+.sync-arrow-line.forward::after{content:'▶';position:absolute;right:-2px;top:-6px;font-size:9px;color:var(--y400)}
+.sync-arrow-line.backward::before{content:'◀';position:absolute;left:-2px;top:-6px;font-size:9px;color:var(--y400)}
+.sync-arrow-label{font-family:'Chip Mono',monospace;font-size:8px;color:var(--n700);white-space:nowrap}
 .sync-engine{background:var(--n1100);border:2px solid var(--y400);border-radius:12px;padding:16px 14px;text-align:center;width:160px}
 .sync-engine-title{font-family:'Chip Display',system-ui,sans-serif;font-size:16px;font-weight:700;color:var(--y400);margin-bottom:6px}
 .sync-engine-steps{display:flex;flex-direction:column;gap:3px}
@@ -184,9 +186,9 @@ h1,h2,h3{font-family:'Chip Display',system-ui,sans-serif;letter-spacing:0.0075em
 <div class="sync-source"><div class="sync-source-icon">🖥️</div>ITSM</div>
 </div>
 </div>
-<div class="sync-arrow"><span style="color:var(--y400);font-size:14px">⟷</span></div>
+<div class="sync-arrow"><div class="sync-arrow-line forward"></div><span class="sync-arrow-label">2-WAY SYNC</span><div class="sync-arrow-line backward"></div></div>
 <div class="sync-engine"><div class="sync-engine-title">AirSync</div><div class="sync-engine-steps"><span class="sync-step">1. Connect</span><span class="sync-step">2. Extract</span><span class="sync-step">3. Transform</span><span class="sync-step">4. Load</span></div></div>
-<div class="sync-arrow"><span style="color:var(--y400);font-size:14px">→</span></div>
+<div class="sync-arrow"><div class="sync-arrow-line forward"></div></div>
 <div class="sync-dest"><div class="sync-dest-title">Knowledge Graph</div><div class="sync-dest-sub">Objects, relationships, permissions preserved</div></div>
 </div>
 <div class="sync-points">
